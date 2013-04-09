@@ -1,0 +1,13 @@
+<h1>All Posts</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+  <li>
+    <div>
+    <%= @posts.title %><br>
+    <%= @posts.author %>
+  </div>
+  </li>
+<% end %>
+
+</ul>

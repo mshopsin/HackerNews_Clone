@@ -1,7 +1,51 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# == Schema Information
 #
-# Examples:
+# Table name: comments
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#  id         :integer          not null, primary key
+#  author_id  :integer
+#  body       :text
+#  reply_id   :integer
+#  post_id    :integer
+#  points     :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+
+Comment.create(:body=>"Tell it like it is, Fry!", :post_id=>1, :author_id=>2)
+
+# == Schema Information
+#
+# Table name: posts
+#
+#  id         :integer          not null, primary key
+#  link       :string(255)
+#  author_id  :integer
+#  points     :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  title      :string(255)
+#
+
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id         :integer          not null, primary key
+#  username   :string(255)
+#  password   :string(255)
+#  points     :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+#User.create(:username=>"PhilipFry", :password=>"1234")
+#User.create(:username=>"BenderRodriquez", :password=>"1234")
+
+Post.create(:title=>"evil search engine", :link=>"www.google.com", :author_id=>1)
+
+
+
+

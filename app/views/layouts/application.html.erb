@@ -10,5 +10,11 @@
 
 <%= yield %>
 
+<% if logged_in? %>
+  <%= current_user.inspect %>
+  <%= button_to "Logout", session_url, :method => "delete" %>
+<% end %>
+
+
 </body>
 </html>

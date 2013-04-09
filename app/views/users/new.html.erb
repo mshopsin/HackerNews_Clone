@@ -1,0 +1,23 @@
+<h1>Sign Up</h1>
+<%= form_for(@user) do |f| %>
+
+ <%= f.label :username, "Username" %>
+ <%= f.text_field :username %>
+ <br>
+
+ <%= f.label :password, "Password"%>
+ <%= f.password_field :password %>
+ <br>
+ <hr>
+ <br>
+ <br>
+ <%= f.fields_for(:emails) do |email_form| %>
+
+ <%= email_form.label :address, "sample@host.com" %>
+ <%= email_form.text_field :address %>
+ <br>
+ <% end %>
+
+ <%= f.submit %>
+
+<% end %>
