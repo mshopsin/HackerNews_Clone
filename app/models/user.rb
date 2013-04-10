@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   attr_accessible :password, :points, :username, :emails_attributes, :address
 
   has_many :emails
+  has_many :upvotes
   accepts_nested_attributes_for :emails, :allow_destroy => :true
 
 end

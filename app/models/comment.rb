@@ -14,7 +14,7 @@
 
 class Comment < ActiveRecord::Base
   attr_accessible :author_id, :body, :points, :post_id, :reply_id
-
+  has_many :upvotes
   belongs_to :post
   belongs_to :author, :class_name => "User"
 

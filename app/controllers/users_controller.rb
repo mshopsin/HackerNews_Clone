@@ -27,9 +27,13 @@ class UsersController < ApplicationController
   end
 
   def update
+
   end
 
   def show
+    @user = User.find(params[:id])
+    @karma = Upvote.where("user_id = ?", @user.id).count
+
   end
 
 end
