@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:id])
+    @user = User.new(params[:user])
     if @user.save
       flash[:confirmation] = 'User created!'
       redirect_to posts_url

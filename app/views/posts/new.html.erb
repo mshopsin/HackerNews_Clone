@@ -1,2 +1,22 @@
-<h1>Post#new</h1>
-<p>Find me in app/views/post/new.html.erb</p>
+<h1>Post a New Link!</h1>
+
+<%= form_for(@post) do |f|%>
+
+  <%= f.label :title%>
+  <%= f.text_field :title %>
+
+  <%= f.label :link %>
+  <%= f.text_field :link %>
+  <hr>
+  <%# f.hidden_field :author_id, :value => current_user.id %>
+
+    <%= f.fields_for(:comments) do |comment_form| %>
+
+    <%= comment_form.label :body, "Comments" %><br>
+    <%= comment_form.text_area :body %>
+
+    <% end %>
+    <br>
+  <%= f.submit %>
+
+<% end %>

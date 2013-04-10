@@ -9,6 +9,7 @@ gem 'sqlite3'
 gem 'annotate'
 gem 'better_errors'
 gem 'pry-rails'
+gem "binding_of_caller"
 
 # Gems used only for assets and not required
 # in production environments by default.

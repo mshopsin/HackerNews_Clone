@@ -2,41 +2,14 @@ Hackernewsclone::Application.routes.draw do
 
   root :to => "posts#index"
 
-  resources :users
-  resources :posts
-  resources :comments
+  resources :users, :only => [ :create, :new ]
+  resources :posts, :only => [:index, :create, :new ]
+  resources :posts do
+    resources :comments, :only => [:index , :create, :new, :show]
+  end
 
-  get "users/new"
-
-  get "users/create"
-
-  get "users/edit"
-
-  get "users/index"
-
-  get "users/destroy"
-
-  get "users/update"
-
-  get "comments/new"
-
-  get "comments/create"
-
-  get "comments/edit"
-
-  get "comments/index"
-
-  get "comments/destroy"
-
-  get "comments/update"
-
-  get "post/new"
-
-  get "post/create"
-
-  get "post/index"
-
-  get "post/destroy"
+  resources :comments, :except => [:create]
+  resource :session, :only => [:create, :destroy, :new]
 
 
 end

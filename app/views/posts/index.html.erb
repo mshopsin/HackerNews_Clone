@@ -4,10 +4,16 @@
   <% @posts.each do |post| %>
   <li>
     <div>
-    <%= @posts.title %><br>
-    <%= @posts.author %>
+    <%= link_to post.title, url_with_protocol(post.link) %><br>
+    <%= post.username %><br>
+    <%= link_to "comment", post_comments_url(post)%>
   </div>
   </li>
 <% end %>
 
 </ul>
+
+<% if logged_in? %>
+<%= link_to "Post a new link", new_post_url %>
+
+<% end %>

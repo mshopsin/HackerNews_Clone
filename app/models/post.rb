@@ -12,5 +12,15 @@
 #
 
 class Post < ActiveRecord::Base
-  attr_accessible :author_id, :link, :points
+  attr_accessible :author_id, :link, :points, :title, :comments_attributes
+
+  has_many :comments
+  accepts_nested_attributes_for :comments
+
+  belongs_to :author, :class_name => "User"
+
+  def username
+    author.username
+  end
+
 end

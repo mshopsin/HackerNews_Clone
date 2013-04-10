@@ -7,14 +7,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<CENTER>
 <%= yield %>
 
+<hr>
 <% if logged_in? %>
-  <%= current_user.inspect %>
+  <%#= current_user.inspect %>
   <%= button_to "Logout", session_url, :method => "delete" %>
-<% end %>
+<% else %>
+  <p> Already Registered? </p>
+<%= form_tag(session_url, :method => :post) do %>
+  <%= label_tag "user[username]", "Username" %>
+  <%= text_field_tag "user[username]" %>
+  <br>
 
+  <%= label_tag "user[password]", "Password" %>
+  <%= password_field_tag "user[password]" %>
+  <br>
+
+
+  <%= submit_tag "Sign in!" %>
+  <hr>
+  <h1>OR</h1>
+  <%= link_to "Sign Up For This Amazing Website, it's like really great.",
+   new_user_url %>
+
+<% end %>
+<% end %>
+</CENTER>
 
 </body>
 </html>
