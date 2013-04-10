@@ -4,12 +4,16 @@ Hackernewsclone::Application.routes.draw do
 
   resources :users, :only => [ :create, :new ]
   resources :posts, :only => [:index, :create, :new ]
+
   resources :posts do
     resources :comments, :only => [:index , :create, :new, :show]
   end
 
+  post 'comments/reply' => 'comments#reply'
+
   resources :comments, :except => [:create]
   resource :session, :only => [:create, :destroy, :new]
+
 
 
 end

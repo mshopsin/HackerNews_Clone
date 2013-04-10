@@ -6,8 +6,21 @@
 <hr>
 <h2> Comments </h2>
 
-<%= @comments.each do |comment| %>
-<%= comment.body %> | <%= comment.username%> <%= link_to "Add Reply"%> <br>
+
+
+  <% last_reply_id = 0; count_tables = 0%>
+<% @comments.each do |comment| %>
+  <%  if last_reply_id != comment.reply_id  %>
+    <% last_reply_id = comment.reply_id  %>
+    <% count_tables += 1 %>
+    <table border="1">
+      <td>
+  <% end %>
+  <%= comment.body %> | <%= comment.username%>
+  <%= link_to "Add Reply", post_comment_url(@post, comment) %> <br>
+<% end %>
+<% count_tables.times do |num| %>
+  </td></table>
 <% end %>
 
 

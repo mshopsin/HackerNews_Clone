@@ -1,0 +1,18 @@
+<h1>Test</h1>
+<%= @post.title %>
+<%= @commentOrg.body %>
+<hr>
+Comments new
+
+
+<hr>
+<%= form_for(@comment, :url => post_comments_path(@post)) do |f| %>
+
+  <br>
+  <%= f.text_area :body%>
+
+  <%= hidden_field_tag 'reply_id', @commentOrg.id %>
+  <br>
+  <%= f.submit %>
+
+<% end %>
