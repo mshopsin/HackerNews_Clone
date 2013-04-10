@@ -16,8 +16,11 @@
     <table border="1">
       <td>
   <% end %>
-  <%= comment.body %> | <%= comment.username%>
+  <%= link_to "UpVote", new_upvote_url( comment) %> |
+   <%= comment.body %> |
+    <%= comment.username%>|
   <%= link_to "Add Reply", post_comment_url(@post, comment) %> <br>
+  <hr>
 <% end %>
 <% count_tables.times do |num| %>
   </td></table>
